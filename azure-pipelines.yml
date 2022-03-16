@@ -11,7 +11,7 @@ pool:
 
 variables:
   bicepFile: 'Infra\site.bicep'
-  azureServiceConnection: '<connection-name>'
+  azureServiceConnection: 'azure'
 
 steps:
 - task: AzureCLI@2
