@@ -23,4 +23,4 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az group create --name $(groupName) --location $(location)
-      az deployment create --resource-group $(groupName) --template-file $(bicepFile)
+      az deployment group create --resource-group $(groupName) --template-file $(bicepFile)
