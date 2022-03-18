@@ -12,6 +12,8 @@ pool:
 variables:
   bicepFile: 'Infra\site.bicep'
   azureServiceConnection: 'azure'
+  groupName: 'rg-biceptest'
+  location: 'uksouth'
 
 steps:
 - task: AzureCLI@2
@@ -19,4 +21,6 @@ steps:
     azureSubscription: $(azureServiceConnection)
     scriptType: batch
     scriptLocation: inlineScript
-    inlineScript: 
+    inlineScript: |
+    az group create --name $(groupName) --location $(location)
+    az deployment create --resource-group $(groupName) --template-file $(bicepFile)
