@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  bicepFile: 'Infra\site.bicep'
+  bicepFile: 'Infra/site.bicep'
   azureServiceConnection: 'azure'
   groupName: 'rg-biceptest'
   location: 'uksouth'
