@@ -17,6 +17,6 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
     'hidden-related:${resourceGroup().id}/providers/Microsoft.Web/serverfarms/appServicePlan': 'Resource'
   }
   properties: {
-    serverFarmId: 'webServerFarms.id'
+    serverFarmId: appServicePlan.id
   }
 }
