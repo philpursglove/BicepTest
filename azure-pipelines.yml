@@ -22,6 +22,7 @@ steps:
     scriptType: batch
     scriptLocation: inlineScript
     inlineScript: |
+      az --version
       az group create --name $(groupName) --location $(location) 
       az deployment group create --resource-group $(groupName) --template-file $(bicepFile)
       
