@@ -1,7 +1,7 @@
 param location string = resourceGroup().location
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
-  name: 'name'
+  name: 'plan-biceptest'
   location: location
   sku: {
     name: 'F1'
@@ -11,7 +11,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
 
 
 resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
-  name: 'name'
+  name: 'app-biceptest'
   location: location
   tags: {
     'hidden-related:${resourceGroup().id}/providers/Microsoft.Web/serverfarms/appServicePlan': 'Resource'
