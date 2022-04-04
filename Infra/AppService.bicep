@@ -13,6 +13,9 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   location: location
   kind: 'web'
   name: 'appi-biceptest'
+  properties: {
+    Application_Type: 'web'
+  }
 }
 
 output appInsightsKey string = appInsights.properties.InstrumentationKey
