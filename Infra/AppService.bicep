@@ -9,6 +9,13 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
   }
 }
 
+resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
+  location: location
+  kind: 'web'
+  name: 'appi-biceptest'
+}
+
+output appInsightsKey string = appInsights.properties.InstrumentationKey
 
 resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
   name: 'app-biceptest'
@@ -20,3 +27,4 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
     serverFarmId: appServicePlan.id
   }
 }
+
