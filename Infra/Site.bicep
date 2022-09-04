@@ -14,3 +14,11 @@ module appservice 'AppService.bicep' = {
     location: rgbiceptest.location
   }
 }
+
+module storage 'storag.bicep.txt' = {
+  name 'storage'
+  scope: rgbiceptest
+  params: {
+    location: rgbiceptest.location
+  }
+}
