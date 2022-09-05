@@ -15,7 +15,7 @@ module appservice 'AppService.bicep' = {
   }
 }
 
-module storage 'storag.bicep.txt' = {
+module storage 'storage.bicep' = {
   name 'storage'
   scope: rgbiceptest
   params: {
