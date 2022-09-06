@@ -10,3 +10,8 @@ resource storage 'Microsoft.Storage/storageAccounts@2022-05-01' = {
     allowBlobPublicAccess: false
   }
 }
+
+resource symbolicname 'Microsoft.Storage/storageAccounts/queueServices/queues@2022-05-01' = {
+  name: 'ScoresOnTheDoors'
+  parent: storage
+}
