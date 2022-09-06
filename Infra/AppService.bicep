@@ -31,3 +31,8 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
   }
 }
 
+resource symbolicname 'Microsoft.Web/sites/functions@2022-03-01' = {
+  name: 'func-biceptest'
+  kind: 'functionapp'
+  location: location
+}
