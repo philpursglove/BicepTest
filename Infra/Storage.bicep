@@ -18,6 +18,6 @@ resource queueServices 'Microsoft.Storage/storageAccounts/queueServices@2022-05-
   parent: storage
 }
 resource scoresQueue 'Microsoft.Storage/storageAccounts/queueServices/queues@2022-05-01' = {
-  name: 'ScoresOnTheDoors'
+  name: 'scoresonthedoors'
   parent: queueServices
 }
