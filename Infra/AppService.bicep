@@ -1,4 +1,5 @@
 param location string
+param storageConnectionstring string
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
   name: 'plan-biceptest'
@@ -31,10 +32,20 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
   }
 }
 
+resource functionPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
+  name: 'plan-biceptestfunc'
+  location: location
+  sku: {
+    name: 'Y1'
+    tier: 'Dynamic'
+  }
+  properties: {}
+}
+
 resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
-  name: 'app-biceptest/func-biceptest-pp'
+  name: 'app-biceptest/func-biceptest'
   kind: 'functionapp'
-  dependsOn: [appServicePlan]
+  dependsOn: [functionPlan]
   properties: {
     config: {
       appSettings: [
@@ -46,6 +57,15 @@ resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'dotnet'
         }
+        {
+          name: 'AzureWebJobsStorage'
+          value: storageConnectionstring
+        }
+        {
+          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
+          value: storageConnectionstring
+        }
+
       ]
     }
   }

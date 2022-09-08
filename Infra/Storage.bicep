@@ -21,3 +21,7 @@ resource scoresQueue 'Microsoft.Storage/storageAccounts/queueServices/queues@202
   name: 'scoresonthedoors'
   parent: queueServices
 }
+
+var storageAccountConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${storage.name};AccountKey=${listKeys(storage.id, '2019-06-01').keys[0].value};EndpointSuffix=core.windows.net'
+
+output connectionString string = storageAccountConnectionString
