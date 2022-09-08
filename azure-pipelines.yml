@@ -22,6 +22,5 @@ steps:
     scriptType: batch
     scriptLocation: inlineScript
     inlineScript: |
-      call az --version
       call az deployment sub create --name bicepTestDeployment --location uksouth --template-file $(bicepFile)
       
