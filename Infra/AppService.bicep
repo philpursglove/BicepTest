@@ -35,4 +35,18 @@ resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
   name: 'app-biceptest/func-biceptest'
   kind: 'functionapp'
   dependsOn: [appServicePlan]
+  properties: {
+    config: {
+      appSettings: [
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'dotnet'
+        }
+      ]
+    }
+  }
 }
