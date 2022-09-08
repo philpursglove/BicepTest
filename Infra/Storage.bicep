@@ -1,7 +1,7 @@
 param location string
 
-resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
-  name: 'stbiceptest'
+resource storage 'Microsoft.Storage/storageAccounts@2022-05-01' = {
+  name: 'stbiceptest-pp'
   location: location
   kind: 'StorageV2'
   sku: {
@@ -13,11 +13,11 @@ resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
   }
 }
 
-resource queueServices 'Microsoft.Storage/storageAccounts/queueServices@2021-09-01' = {
+resource queueServices 'Microsoft.Storage/storageAccounts/queueServices@2022-05-01' = {
   name: 'default'
   parent: storage
 }
-resource scoresQueue 'Microsoft.Storage/storageAccounts/queueServices/queues@2021-09-01' = {
+resource scoresQueue 'Microsoft.Storage/storageAccounts/queueServices/queues@2022-05-01' = {
   name: 'ScoresOnTheDoors'
   parent: queueServices
 }
