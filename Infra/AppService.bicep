@@ -45,7 +45,6 @@ resource functionPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
 resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
   name: 'app-biceptest/func-biceptest'
   kind: 'functionapp'
-  dependsOn: [functionPlan]
   properties: {
     config: {
       appSettings: [
@@ -67,6 +66,7 @@ resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
         }
 
       ]
+      serverFarmId: functionPlan.name
     }
   }
 }
