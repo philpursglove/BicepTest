@@ -47,6 +47,25 @@ resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
   kind: 'functionapp'
   properties: {
     config: {
+      appSettings: [
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~4'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'dotnet'
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: storageConnectionstring
+        }
+        {
+          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
+          value: storageConnectionstring
+        }
+
+      ]
       serverFarmId: functionPlan.name
     }
   }
