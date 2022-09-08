@@ -22,4 +22,7 @@ module appservice 'AppService.bicep' = {
     location: rgbiceptest.location
     storageConnectionstring: storage.outputs.connectionString
   }
+  dependsOn: [
+    storage
+  ]
 }
