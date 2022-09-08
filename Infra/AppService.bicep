@@ -32,7 +32,7 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
 }
 
 resource function 'Microsoft.Web/sites/functions@2022-03-01' = {
-  name: 'plan-biceptest/func-biceptest'
+  name: 'app-biceptest/func-biceptest'
   kind: 'functionapp'
   dependsOn: [appServicePlan]
 }
